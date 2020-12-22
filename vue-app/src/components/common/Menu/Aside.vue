@@ -49,7 +49,6 @@
       </v-list-item>
 
       <v-divider></v-divider>
-
       <v-list
         dense
         nav
@@ -61,6 +60,7 @@
           <v-list-item
             v-for="(item, index) in items"
             :key="index"
+            @click="$router.push(item.router)"
           >
             <v-list-item-icon>
               <v-icon>{{item.icon}}</v-icon>
@@ -74,22 +74,21 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-main>
-      <!--<router-view></router-view>-->
-    </v-main>
   </v-app>
 </template>
 
 <script>
 export default {
+  props:{
+    items:{
+      type:Array
+    }
+  },
   data:()=>({
-    items:[
-      {title:'About Me', icon:'mdi-account'},
-      {title:'Portfolio', icon:'mdi-folder-heart'},
-      {title:'Skill', icon:'mdi-inbox-full'},
-      {title:'Contact', icon:'mdi-card-account-phone'}
-    ]
-  })
+    
+  }),
+  methods:{
+  }
 }
 </script>
 
